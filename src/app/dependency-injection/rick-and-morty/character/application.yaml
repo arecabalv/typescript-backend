@@ -4,7 +4,7 @@ services:
   
   Character.Finder:
     class: ../../../../context/rick-and-morty/application/CharacterFinder
-    arguments: ['@Character.Repository']
+    arguments: ['@Character.Repository', '@Redis.Persistance.Repository']
 
   Character.Find.Controller:
     class: '../../../controllers/rick-and-morty/find/FindCharacterController'

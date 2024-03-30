@@ -3,7 +3,7 @@ import RedisConfig from './RedisConfig';
 
 export class RedisConfigFactory {
   static createConfig(cache: string): RedisConfig {
-    const redisConfig = config.REDIS.find((redisConfig) => {
+    const redisConfig = config.REDIS.CONNECTIONS.find((redisConfig) => {
       return redisConfig.CACHE === cache
     });
 

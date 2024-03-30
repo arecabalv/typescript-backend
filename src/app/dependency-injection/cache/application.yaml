@@ -1,7 +1,7 @@
 services:
   Redis.Config:
     factory:
-      class: ../../../context/shared/infrastructure/persistance/redis/RedisConfig
+      class: ../../../context/shared/infrastructure/persistance/redis/RedisConfigFactory
       method: 'createConfig'
     arguments: ['typescript-backend']
 

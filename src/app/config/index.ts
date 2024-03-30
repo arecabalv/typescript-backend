@@ -11,10 +11,14 @@ export default {
     ERROR: 'error',
     INFO: 'info',
   },
-  REDIS: [
-    {
-      CACHE: 'typescript-template',
-      URL: env('REDIS_TEMPLATE') ?? 'redis://localhost:6379',
-    },
-  ],
+  REDIS: 
+  {
+    TIMEOUT: parseInt(env('REDIS_TIMEOUT') ?? '500'),
+    CONNECTIONS: [
+      {
+        CACHE: 'typescript-backend',
+        URL: env('REDIS_TEMPLATE') ?? 'redis://localhost:6379',
+      },
+    ],
+  },
 };
