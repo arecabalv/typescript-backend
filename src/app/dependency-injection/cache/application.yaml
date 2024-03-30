@@ -1,0 +1,16 @@
+services:
+  Redis.Config:
+    factory:
+      class: ../../../context/shared/infrastructure/persistance/redis/RedisConfig
+      method: 'createConfig'
+    arguments: ['typescript-backend']
+
+  Redis.Connection.Manager:
+    factory:
+      class: ../../../context/shared/infrastructure/persistance/redis/RedisClientFactory
+      method: 'createClient'
+    arguments: ['typescript-backend', '@Redis.Config', '@Shared.Logger']
+  
+  Redis.Persistance.Repository:
+    class: ../../../context/shared/infrastructure/persistance/redis/RedisRepository
+    arguments: ['@Redis.Connection.Manager', 'typescript-template']

@@ -11,4 +11,10 @@ export default {
     ERROR: 'error',
     INFO: 'info',
   },
+  REDIS: [
+    {
+      CACHE: 'typescript-template',
+      URL: env('REDIS_TEMPLATE') ?? 'redis://localhost:6379',
+    },
+  ],
 };
