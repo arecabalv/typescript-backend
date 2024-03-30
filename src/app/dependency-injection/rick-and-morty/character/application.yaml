@@ -1,0 +1,11 @@
+services:
+  Character.Repository:
+    class: ../../../../context/rick-and-morty/infrastructure/repository/ApiCharacterRepository
+  
+  Character.Finder:
+    class: ../../../../context/rick-and-morty/application/CharacterFinder
+    arguments: ['@Character.Repository']
+
+  Character.Find.Controller:
+    class: '../../../controllers/rick-and-morty/find/FindCharacterController'
+    arguments: ['@Character.Finder']

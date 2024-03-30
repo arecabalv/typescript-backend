@@ -2,3 +2,4 @@ imports:
   - { resource: ./shared/application.yaml }
   - { resource: ./cache/application.yaml }
   - { resource: ./health/application.yaml }
+  - { resource: ./rick-and-morty/character/application.yaml }
