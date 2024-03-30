@@ -1,0 +1,79 @@
+{
+  "name": "typescript-backend",
+  "version": "0.1.0",
+  "description": "typescript backend service",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "node -r tsconfig-paths/register -r ts-node/register ./src/app/server/Index.ts",
+    "ext": "ts, js"
+  },
+  "scripts": {
+    "dev": "nodemon",
+    "build": "npm run build:clean && npm run build:tsc && npm run build:di",
+    "build:clean": "rm -r dist; exit 0",
+    "build:tsc": "tsc -p tsconfig.prod.json",
+    "build:di": "cpy 'src/**/*.{json,yaml}' dist/src",
+    "start": "node -r tsconfig-paths/register -r ts-node/register ./dist/src/app/server/Index.js",
+    "prod": "npm run build && npm run start",
+    "check-types": "tsc --noemit",
+    "eslint": "eslint '*/**/*.{js,ts}' --fix --max-warnings=0 --no-error-on-unmatched-pattern",
+    "test:unit": "jest --passWithNoTests --force-exit",
+    "test:features": "cucumber-js --force-exit",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --collect-coverage --collectCoverageFrom=src/context/** --passWithNoTests",
+    "prepare": "husky install"
+  },
+  "author": "Álvaro Recabal",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cookie-parser": "1.4.5",
+    "cors": "2.8.5",
+    "cpy-cli": "^4.2.0",
+    "dotenv": "10.0.0",
+    "express": "^4.18.2",
+    "express-promise-router": "4.1.1",
+    "helmet": "5.0.2",
+    "http-status": "1.5.2",
+    "husky": "7.0.4",
+    "kafkajs": "^2.2.4",
+    "mongodb": "^4.7.0",
+    "node-dependency-injection": "2.7.3",
+    "redis": "^4.6.7",
+    "tsconfig-paths": "4.0.0",
+    "tsconfig-paths-jest": "0.0.1",
+    "winston": "3.7.2",
+    "zod": "^3.20.2",
+    "zod-error": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/glob": "^8.1.0",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "8.21.0",
+    "eslint-config-google": "^0.14.0",
+    "express-list-endpoints": "^6.0.0",
+    "jest": "^27.2.4",
+    "nodemon": "^3.1.0",
+    "pactum": "^3.1.6",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "tsconfig-paths": "^4.0.0",
+    "tsconfig-paths-jest": "^0.0.1",
+    "typescript": "^4.4.3"
+  }
+}
