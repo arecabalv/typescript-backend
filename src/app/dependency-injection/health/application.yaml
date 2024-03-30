@@ -1,0 +1,5 @@
+services:
+
+  Controller.Health:
+    class: ../../controllers/health/HealthController
+    arguments: []
