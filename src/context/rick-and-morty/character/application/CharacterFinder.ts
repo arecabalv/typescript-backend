@@ -1,6 +1,6 @@
+import { InMemmoryCache } from '@context/shared/domain/InMemmoryCache';
 import { CharacterRepository } from '../domain/contract/CharactersRepository';
 import { Character } from '../domain/class/Character';
-import { InMemmoryCache } from '@context/shared/domain/InMemmoryCache';
 
 export class CharacterFinder {
   constructor(

@@ -14,8 +14,8 @@ export default {
   MONGO: {
     CONNECTIONS: [
       {
-        URL: env('MONGO_TEMPLATE') ?? 'mongodb://localhost:27017',
-        DATABASE: 'typescript-backend',
+        URL: env('MONGO_TEMPLATE') ?? 'mongodb://localhost:27017/starwars',
+        DATABASE: 'typesctipt-backend-starwars',
       },
     ],
   },

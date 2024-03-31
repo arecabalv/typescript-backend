@@ -1,12 +1,12 @@
 services:
-  Mongo.Config:
+  Mongo.Config.StartWars:
     factory:
       class: ../../../context/shared/infrastructure/persistance/mongo/MongoConfigFactory
       method: 'createConfig'
-    arguments: ['typesctipt-backend']
+    arguments: ['typesctipt-backend-starwars']
   
-  Mongo.Connection.Manager:
+  Mongo.Connection.Manager.StartWars:
     factory:
       class: '../../../context/shared/infrastructure/persistance/mongo/MongoClientFactory'
       method: 'createClient'
-    arguments: ['typescript-backend', '@Mongo.Config']
+    arguments: ['typesctipt-backend-starwars', '@Mongo.Config.StartWars']

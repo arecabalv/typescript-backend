@@ -1,0 +1,18 @@
+services:
+  StarWars.Character.Repository:
+    class: ../../../../context/star-wars/character/infrastructure/persitance/mongodb/MongoCharacterRepository
+    arguments: ['@Mongo.Connection.Manager.StartWars']
+
+  StarWars.Character.Updater:
+    class: ../../../../context/star-wars/character/application/CharacterUpdater
+    arguments: ['@StarWars.Character.Repository']
+  StarWars.Character.Finder:
+    class: ../../../../context/star-wars/character/application/CharacterFinder
+    arguments: ['@StarWars.Character.Repository']
+  
+  StarWars.Character.Put.Controller:
+    class: ../../../controllers/star-wars/create/CreateCharacterController
+    arguments: ['@StarWars.Character.Updater']
+  StarWars.Character.Get.Controller:
+    class: ../../../controllers/star-wars/find/FindCharacterController
+    arguments: ['@StarWars.Character.Finder']

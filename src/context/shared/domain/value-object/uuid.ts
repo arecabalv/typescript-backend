@@ -1,5 +1,6 @@
 import { v4 } from 'uuid';
 import validate from 'uuid-validate';
+import { BadRequestError } from '../errors/BadRequestError';
 
 export class Uuid {
   readonly value: string;
@@ -16,7 +17,7 @@ export class Uuid {
 
   private ensureIsValidUuid(id: string): void {
     if (!validate(id)) {
-      throw new Error(`${this.constructor.name}> does not allow the value <${id}>`);
+      throw new BadRequestError(`<${this.constructor.name}> does not allow the value <${id}>`, 'VLO-001');
     }
   }
 

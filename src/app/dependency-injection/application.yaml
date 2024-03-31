@@ -4,3 +4,4 @@ imports:
   - { resource: ./database/application.yaml }
   - { resource: ./health/application.yaml }
   - { resource: ./rick-and-morty/character/application.yaml }
+  - { resource: ./star-wars/character/application.yaml }
