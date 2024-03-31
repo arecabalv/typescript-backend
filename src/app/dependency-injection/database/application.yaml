@@ -1,0 +1,12 @@
+services:
+  Mongo.Config:
+    factory:
+      class: ../../../context/shared/infrastructure/persistance/mongo/MongoConfigFactory
+      method: 'createConfig'
+    arguments: ['typesctipt-backend']
+  
+  Mongo.Connection.Manager:
+    factory:
+      class: '../../../context/shared/infrastructure/persistance/mongo/MongoClientFactory'
+      method: 'createClient'
+    arguments: ['typescript-backend', '@Mongo.Config']

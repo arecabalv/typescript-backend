@@ -11,7 +11,15 @@ export default {
     ERROR: 'error',
     INFO: 'info',
   },
-  REDIS: 
+  MONGO: {
+    CONNECTIONS: [
+      {
+        URL: env('MONGO_TEMPLATE') ?? 'mongodb://localhost:27017',
+        DATABASE: 'typescript-backend',
+      },
+    ],
+  },
+  REDIS:
   {
     TIMEOUT: parseInt(env('REDIS_TIMEOUT') ?? '500'),
     CONNECTIONS: [
