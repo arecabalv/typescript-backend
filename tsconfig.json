@@ -13,6 +13,7 @@
     "noUnusedLocals": true,
     "outDir": "./dist",
     "baseUrl": ".",
+    "experimentalDecorators": true,
     "paths": {
       "@app/*": [
         "src/app/*"
