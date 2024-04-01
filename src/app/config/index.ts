@@ -11,6 +11,19 @@ export default {
     ERROR: 'error',
     INFO: 'info',
   },
+  KAFKA: {
+    CONNECTIONS: [
+      {
+        BROKERS: env('KAFKA_BROKERS') ?? 'localhost:9092',
+        CLIENT_ID: env('KAFKA_CLIENT_ID') ?? 'kafka-poc',
+        SASL: {
+          USERNAME: env('KAFKA_USERNAME') ?? '',
+          PASSWORD: env('KAFKA_PASSWORD') ?? '',
+          MECHANISM: env('KAFKA_MECHANISM') ?? '',
+        },
+      },
+    ],
+  },
   MONGO: {
     CONNECTIONS: [
       {
