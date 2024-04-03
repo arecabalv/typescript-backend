@@ -3,16 +3,27 @@ services:
     class: ../../../../context/star-wars/character/infrastructure/persitance/mongodb/MongoCharacterRepository
     arguments: ['@Mongo.Connection.Manager.StartWars']
 
-  StarWars.Character.Updater:
-    class: ../../../../context/star-wars/character/application/CharacterUpdater
+  StarWars.Character.Creator:
+    class: ../../../../context/star-wars/character/application/create/CharacterCreator
     arguments: ['@StarWars.Character.Repository']
   StarWars.Character.Finder:
-    class: ../../../../context/star-wars/character/application/CharacterFinder
+    class: ../../../../context/star-wars/character/application/find/CharacterFinder
     arguments: ['@StarWars.Character.Repository']
+
+  StarWars.Character.Create.CommandHandler:
+    class: '../../../../context/star-wars/character/application/create/CreateCharacterCommandHandler'
+    arguments: ['@StarWars.Character.Creator']
+    tags:
+      - { name: 'commandHandler' }
+  StarWars.Character.Find.QueryHandler:
+    class : ../../../../context/star-wars/character/application/find/FindCharacterQueryHandler
+    arguments: ['@StarWars.Character.Finder']
+    tags:
+      - { name: 'queryHandler' }
   
   StarWars.Character.Put.Controller:
     class: ../../../controllers/star-wars/create/CreateCharacterController
-    arguments: ['@StarWars.Character.Updater']
+    arguments: ['@Shared.Domain.CommandBus']
   StarWars.Character.Get.Controller:
     class: ../../../controllers/star-wars/find/FindCharacterController
-    arguments: ['@StarWars.Character.Finder']
+    arguments: ['@Shared.Domain.QueryBus']

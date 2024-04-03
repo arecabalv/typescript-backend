@@ -1,6 +1,6 @@
-import { Character } from '../domain/class/Character';
-import { CharacterId } from '../domain/class/CharacterId';
-import { CharacterRepository } from '../domain/contract/CharacterRepository';
+import { Character } from '../../domain/class/Character';
+import { CharacterId } from '../../domain/class/CharacterId';
+import { CharacterRepository } from '../../domain/contract/CharacterRepository';
 
 export class CharacterFinder {
   constructor(private characterRepository: CharacterRepository) {}
